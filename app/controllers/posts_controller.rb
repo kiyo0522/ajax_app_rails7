@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index
+    post = Post.create(content: params[:content]) #postモデルに一旦保存再利用が可能
+    render json:{ post: post }
   end
 end
